@@ -1,0 +1,6 @@
+{
+    "telraam":
+        ["counts_lower", "counts_upper"],
+    "signco_fietstellus":
+        ["counts_lower", "counts_upper"]
+}

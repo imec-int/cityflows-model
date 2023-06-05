@@ -1,0 +1,42 @@
+# specific folders
+.git
+.github
+.vscode
+
+batch_execution
+chart
+data
+debug
+mount
+notebooks
+service_command_messages
+src/cloud_model
+src/tooling
+src/obelisk
+src/street_cutting
+
+# specific files
+.dockerignore
+.gitattributes
+.gitignore
+azure-pipelines.yaml
+docker-compose*
+Dockerfile
+
+# file extensions
+*.sh
+**/*.md
+**/*.ipynb
+**/*.pyc
+**/*.csv
+**/*.json
+**/*.p
+**/*.gif
+**/*.png
+**/*.xlsx
+**/*.gz
+**/*.zip
+
+# exceptions
+!run.sh
+!src/model/modality_mapping.json

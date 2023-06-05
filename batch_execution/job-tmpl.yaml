@@ -1,0 +1,37 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: cityflows-data-model-batch-$ID
+spec:
+  template:
+    spec:
+      nodeSelector:
+        agentpool: userpool
+      containers:
+      - name: cityflows-data-model-batch-$ID
+        image: cityflowsacr.azurecr.io/cityflows-data-model
+        resources:
+          requests:
+            cpu: 1
+          limits:
+            cpu: 2
+        volumeMounts:
+        - name: config-volume
+          mountPath: /app/src/config.yaml
+          subPath: config.yaml
+        env:
+        - name: RUN_AS_BATCH_JOB
+          value: "1"
+        - name: BLOBS_DIR
+          value: "$BLOBS_DIR"
+        - name: COUNTS_PREFIXES
+          value: "$COUNTS_PREFIXES"
+        - name: TOKENSERVER
+          value: "40.68.207.41"
+        - name: TOKENSERVER_PORT
+          value: "41955"
+      volumes:
+        - name: config-volume
+          configMap:
+            name: batch-job-config
+      restartPolicy: OnFailure

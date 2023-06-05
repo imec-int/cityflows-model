@@ -1,0 +1,5 @@
+data_files:
+  local_dir: "data/managed_data_files"
+  blob_storage:
+    connection_string: ""
+    container_name: "data-files"

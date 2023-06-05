@@ -1,0 +1,39 @@
+{
+    "bg_density": {
+        "max_density": 1
+    },
+    "bike_density": {
+        "max_density": 2,
+        "modal_split": 0.3,
+        "average_speed": 4.17,
+        "raw_modalities": [
+            "bike",
+            "velo_od"
+        ]
+    },
+    "pedestrian_density": {
+        "max_density": 2,
+        "modal_split": 0.3,
+        "average_speed": 1.39,
+        "raw_modalities": [
+            "pedestrian",
+            "walk"
+        ]
+    },
+    "mot_density": {
+        "max_density": 0.556,
+        "modal_split": 0.4,
+        "average_speed": 8.33,
+        "raw_modalities": [
+            "car",
+            "truck",
+            "publicTransport",
+            "lorry",
+            "heavy",
+            "public_transport",
+            "motorized",
+            "bus",
+            "van"
+        ]
+    }
+}

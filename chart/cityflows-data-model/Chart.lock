@@ -1,0 +1,6 @@
+dependencies:
+- name: lib
+  repository: oci://cityflowsacr.azurecr.io/chart
+  version: 0.4.7
+digest: sha256:e2db4aa80bb843fec23fb1818a41a636c4a01da96b89f1737fc110c61ee5943a
+generated: "2021-10-01T11:16:34.468748462+02:00"

@@ -1,0 +1,41 @@
+secrets_dir: "/kvmnt"
+data:
+  input: "/input"
+  output: "/output"
+  # When running in cronjob mode you set the minimum age for the data, usefull to avoid the Gurobi license limitations
+  minimum_date_age_s: 14400 # 4 hours
+azure:
+  input:
+    blob_connection_string: ""
+    container_name: "data-model-input"
+  output:
+    blob_connection_string: ""
+    container_name: "data-model-output"
+kafka:
+  brokers: kafka:9092
+  client_id: cityflows-data-model
+  consumer_group_id: cityflows-data-model
+  # Topic to receive the model command messages, only used in service mode
+  model_cmd_topic: cmd.cityflows.model.1
+  # Topic to which the model command messages that failed processing will be posted
+  model_cmd_dlq_topic: cmd.cityflows.model.dlq.1
+  # Topic to publish the model status messages
+  model_run_topic: cityflows-model-run
+
+server:
+  # Switch between service mode and cronjob mode
+  enabled: True
+  http_port: 80
+
+model:
+  # You can disable different steps of the process by setting them to False
+  steps:
+    # If you want to skip files being cleaned set this to True
+    cache: False
+    # If you have the files already cached set this to false
+    download: True
+    process: True
+    upload: True
+  modality_mapping: /app/src/model/modality_mapping.json
+  upsampling_frequency: '5min'
+  modality_mixing_iteration_step: 4

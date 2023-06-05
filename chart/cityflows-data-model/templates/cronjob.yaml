@@ -1,0 +1,3 @@
+{{- if not .Values.configmap.server.enabled }}
+{{ include "lib.cronjob.tpl" . }}
+{{- end }}

@@ -1,0 +1,15 @@
+version: "3"
+services:
+  data-model:
+    build:
+      context: .
+    volumes:
+      - ./mount/input:/input
+      - ./mount/output:/output
+      - ./mount/kvmnt:/kvmnt
+      - ./mount/config.yaml:/cfg/config.yaml
+    ports:
+      - 8080:80
+    environment:
+      - TOKENSERVER=40.68.207.41
+      - TOKENSERVER_PORT=41955

@@ -1,0 +1,66 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# misc
+.DS_Store
+.vscode/settings.json
+.idea
+*.orig
+launch.json
+
+**/*.py[cod]
+**/__pycache__
+src/model/output_cleansing_script/
+src/model/data_januari_2020/proximus/
+src/model/mock_data/mock_data_20200128_2hours.json
+src/model/data_januari_2020/bemobile_fcd_data/
+src/model/data_januari_2020/bemobile_fcd_data_feb/
+src/model/data_januari_2020/bemobile_fcd_data_old/
+src/model/data_januari_2020/citymesh/
+src/model/data_januari_2020/telraam/
+src/model/data_januari_2020/cleansed_data/
+src/model/data_januari_2020/data_bemobile_september
+src/model/output_cleansing_script
+src/model/test_data/
+src/model/temp/
+src/tooling/validation/output_pdf
+src/tooling/merge_RT_data_files/bulk_input
+src/tooling/merge_RT_data_files/bulk_input_3_september
+src/tooling/merge_RT_data_files/bulk_input_27_augustus
+src/obelisk/files
+src/obelisk/build
+
+*:Zone.Identifier
+model/__pycache__
+model/test_data/
+
+data
+debug
+tmp
+mount
+
+config.yaml
+config.py
+
+model/data_januari_2020/
+model/test_data/
+tooling/validation/output_pdf/
+tooling/merge_RT_data_files/bulk_input/
+tooling/merge_RT_data_files/bulk_input_3_september/
+tooling/merge_RT_data_files/bulk_input_27_augustus/
+model/output_cleansing_script/
+
+notebooks/**/*.png
+
+# Pickle files
+*.p
+
+cache/
+*.prof
+
+# Helm lib chart 
+chart/**/*.tgz
+
+# node
+node_modules
+
+# kubernetes jobs
+batch-jobs

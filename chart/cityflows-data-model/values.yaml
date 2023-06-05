@@ -1,0 +1,59 @@
+name: cityflows-data-model
+enabled: false
+
+image:
+  registry: digitaltwincontainerregistry.azurecr.io
+  repository: cityflows-data-model
+  pullPolicy: Always
+  tag: latest
+
+keyvault:
+  secrets:
+    - AZURE-CITYFLOWS-STORAGE-KEY
+  types:
+    - secret
+
+configmap:
+  secrets_dir: /kvmnt
+  server:
+    # -- Used to switch between service and cronjob mode
+    # If false the chart will create a cronjob 
+    # If true the chart will create a deployment with a service
+    enabled: false
+    http_port: 3005
+
+configmapVolumes:
+  cityflows-data-model:
+    path: "/cfg"
+
+environment:
+  TOKENSERVER: 40.68.207.41
+  SECRET_DIR: /kvmnt
+
+# -- Only used in Service mode
+deployment:
+  port: 3005
+
+# -- Only used in Service mode
+# Service
+service:
+  type: ClusterIP
+  port: 80
+
+# -- Only used in cronjob mode, this can be enabled using configmap.server.enabled = false (this is the default behaviour)
+cronjob:
+  # -- Cronjob schedule see: https://crontab.guru/ 
+  # @default -- `*/5 * * * *` (Runs every five minutes)
+  schedule: "*/5 * * * *"
+  restartPolicy: OnFailure
+  concurrencyPolicy: Forbid
+
+# More info on resources: https://iminds.atlassian.net/l/c/GadyUYRC
+# WARNING: PLEASE SET THIS UP ONCE WE KNOW THE ACTUAL MEMORY/CPU USAGE
+# resources:
+#   requests:
+#     memory: "1524Mi"
+#     cpu: "100m"
+#   limits:
+#     memory: "1600Mi"
+#     cpu: "500m"
